@@ -26,8 +26,6 @@
 import __ from '@/common/i18n'
 import searchForm from './SearchForm'
 import dynamicTime from '@/app/component/DynamicTime'
-import browser from 'webextension-polyfill'
-import {SYNC_SERVICE_URL} from '@/common/constants'
 import {mapState, mapActions, mapMutations} from 'vuex'
 import {sendMessage} from '@/common/utils'
 
@@ -89,9 +87,7 @@ export default {
     syncBtnClicked() {
       if (this.uploadSuccess) return
       if (!this.hasToken) {
-        // TODO: temporarily hide the login shortcut
         return this.$router.push('/app/options/sync')
-        // return browser.tabs.create({url: SYNC_SERVICE_URL + '/login'})
       }
       return sendMessage({refresh: true})
     },

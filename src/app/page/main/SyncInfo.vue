@@ -32,13 +32,6 @@
             </v-list-tile>
           </v-list>
 
-          <v-btn v-if="hasToken" block color="success" :href="apiUrl + '/info'" target="_blank">
-            {{ __('ui_manage_account') }}
-          </v-btn>
-
-          <v-btn v-if="!hasToken" block color="success" :href="apiUrl + '/login'" target="_blank">
-            {{ __('ui_login') }}
-          </v-btn>
 
         </v-card-text>
       </v-card>
@@ -49,7 +42,6 @@
 
 <script>
 import __ from '@/common/i18n'
-import {SYNC_SERVICE_URL} from '@/common/constants'
 import {formatTime} from '@/common/utils'
 import boss from '@/common/service/boss'
 import browser from 'webextension-polyfill'
@@ -59,7 +51,6 @@ export default {
   data() {
     return {
       uid: '',
-      apiUrl: SYNC_SERVICE_URL,
     }
   },
   created() {
